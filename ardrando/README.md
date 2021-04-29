@@ -34,7 +34,7 @@ When the toggle is up, it uses an internal clock. When toggle is down, `CLOCKIN`
 ### When Shift button is pressed
 
 #### Held for 2 seconds
-- Knob 1: Set quantization scale 1-8: 1=octaves, 2=octaves and fifths, 3=major, 4=minor, 5=relminor, 6=7th, (default)=all semitones)
+- Knob 1: Set quantization scale 1-8: 1=octaves, 2=octaves & 5ths, 3=ionian, 4=dorian, 5=phrygian, 6=lydian, 7=myxolydian,8=aeolian,9=locrian, 10=chromatic
 - Knob 2: Change BPM (internal mode only)
 - Knob 3: Change note length
 
