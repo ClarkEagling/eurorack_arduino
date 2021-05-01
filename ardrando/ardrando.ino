@@ -1,5 +1,7 @@
 /// Title: Ardrando
 // VERSION:  3.1
+
+//CLARK where is variable s defined? it should be a random roll.
 boolean DEBUG = 0;
 boolean NOTEDEBUG = 0;
 boolean KEYDEBUG = 0 ; // this gives details about all the keys pressed at any given moment
@@ -80,6 +82,8 @@ int notes = 128;
 byte buffer[3];    // for dac
 
 // -------------  Variables for the sequencer -------------------
+
+// CLARK WTF are these sequencer steps?
 uint8_t def_sequencer_steps[16] = {60, 67, 72, 79, 84, 79, 72, 67, 60, 55, 48, 43, 36, 43, 48, 55};
 uint8_t sequencer_steps[16] ;
 float sequencer_lens[16];
@@ -115,9 +119,11 @@ int bpm = 120;
 
 
 // For Turing Functions
+//CLARK where are these used? NOWHERE.
 int random_scale;
 int random_amt;
 int random_rest;
+
 // function declarations
 void sequencer_mode();
 void edit_mode();
@@ -170,10 +176,12 @@ void setup() {
   // these are in the setup() because we want to be able to reset the seqeunce when the unit is reset
   for (int k = 0; k < 16; k++) {
     sequencer_steps[k] = def_sequencer_steps[k];
+    
+    //CLARK .5 sequencer lens?
     sequencer_lens[k] = .5;
   }
   for (int k = 0; k < thisscalelen; k++) {
-    thisscale[k] = scale8[k];
+    thisscale[k] = scale10[k];
   }
   seq_counter = 0;
   seq_length = 16;
@@ -339,6 +347,7 @@ int quantize_to_scale(int thisnote, int thisscalelen) {
   return (quantized);
 }
 void play_sequence() {
+  //CLARK scaling is defined by pot2
   int scaling =  map(process_pot(pot2), 0, 1023, 1, 128);
   int half_scaling =  ceil(float(scaling / 2.0));
   if (DEBUG) {
@@ -383,10 +392,16 @@ void play_sequence() {
   //  turing bit
   random_amt = map(process_pot(pot1), 0, 1023, 100, 0);
   // decide change note or not
-  if ( random_amt  > random(100)) {
+
+  //CLARK dice roll based on pot value
+  //What's "scaling" variable doing here?
+  //CLARK rscale is the randomizer also, play with the following conditional statement:
+
+ // OLD VERSION:  if ( random_amt  > random(100)) {
+  if ( random_amt  > random(50)) {
     int base = ceil(scaling / 2.0);
     int rscale = random(scaling);
-    //int new_note = thisnote - half_scaling + rscale; // new note is centered around middle
+// new note is centered around middle
     int new_note = thisnote - base + rscale;
     if (DEBUG) {
       Serial.print("old step ");
@@ -494,6 +509,7 @@ void process_shift_change() {
     time_to_restart = millis() + (8 * 1000) ;
     time_to_reset_seq = millis() + (4 * 1000) ;
     time_to_reset_bpm = millis() + (2 * 1000) ;
+// CLARK    trigger_new_seq = millis() + 100;
   } else {
     if (time_to_restart < millis()) {
       for (int i = 0; i < 4; i ++) {
@@ -584,13 +600,6 @@ void process_shift_change() {
       }
     }
   }
-  //  if (DEBUG)
-  //  Serial.print(thisscaleid);
-  //  Serial.println("   ");
-  //  Serial.println(thisscalelen);
-  //  for (int k = 0; k < seq_length; k++ ) {
-  //    sequencer_lens[k] = float(process_pot(pot3)) / 1000;
-  //  }
 }
 
 
