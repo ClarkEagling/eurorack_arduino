@@ -26,48 +26,44 @@ boolean KEYDEBUG = 0 ; // this gives details about all the keys pressed at any g
 
 //These are the valid values for scales
 // paste0(sort(c(c((0:8 * 12) + 0), c((0:8 * 12) + 5))), collapse=", ")
+//octaves
 uint8_t scale1[9]  = {0, 12, 24, 36, 48, 60, 72, 84, 96};
 uint8_t scale2[18] =   {0, 7, 12, 19, 24, 31, 36, 43, 48,
+                        //octaves and fifths
                         55, 60, 67, 72, 79, 84, 91, 96, 103
                        };
-uint8_t scale3[27] =   {0, 2, 7, 12, 14, 19, 24, 26, 31,
-                        36, 38, 43, 48, 50, 55, 60, 62, 67,
-                        72, 74, 79, 84, 86, 91, 96, 98, 103
-                       };
-uint8_t scale4[27] =   {0, 5, 7, 12, 17, 19, 24, 29, 31,
-                        36, 41, 43, 48, 53, 55, 60, 65, 67,
-                        72, 77, 79, 84, 89, 91, 96, 101, 103
-                       };
-uint8_t scale5[27] =   {0, 4, 7, 12, 16, 19, 24, 28, 31,
-                        36, 40, 43, 48, 52, 55, 60, 64, 67,
-                        72, 76, 79, 84, 88, 91, 96, 100, 103
-                       };
-uint8_t scale6[36] =   {0, 5, 7, 9, 12, 17, 19, 21, 24,
-                        29, 31, 33, 36, 41, 43, 45, 48, 53,
-                        55, 57, 60, 65, 67, 69, 72, 77, 79,
-                        81, 84, 89, 91, 93, 96, 101, 103, 105
-                       };
-uint8_t scale7[36] =   {0, 5, 7, 10, 12, 17, 19, 22, 24,
-                        29, 31, 34, 36, 41, 43, 46, 48, 53,
-                        55, 58, 60, 65, 67, 70, 72, 77, 79,
-                        82, 84, 89, 91, 94, 96, 101, 103, 106
-                       };
-uint8_t scale8[128] =   {1, 2, 3, 4, 5, 6, 7, 8, 9,
-                         10, 11, 12, 13, 14, 15, 16, 17, 18,
-                         19, 20, 21, 22, 23, 24, 25, 26, 27,
-                         28, 29, 30, 31, 32, 33, 34, 35, 36,
-                         37, 38, 39, 40, 41, 42, 43, 44, 45,
-                         46, 47, 48, 49, 50, 51, 52, 53, 54,
-                         55, 56, 57, 58, 59, 60, 61, 62, 63,
-                         64, 65, 66, 67, 68, 69, 70, 71, 72,
-                         73, 74, 75, 76, 77, 78, 79, 80, 81,
-                         82, 83, 84, 85, 86, 87, 88, 89, 90,
-                         91, 92, 93, 94, 95, 96, 97, 98, 99,
-                         100, 101, 102, 103, 104, 105, 106, 107, 108,
-                         109, 110, 111, 112, 113, 114, 115, 116, 117,
-                         118, 119, 120, 121, 122, 123, 124, 125, 126,
-                         127, 128
-                        };
+//ionian
+uint8_t scale3[36] =   {0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 41, 43, 45, 47, 48, 50, 52, 53, 55, 57, 59, 60};
+//dorian
+uint8_t scale4[36] =   {0, 2, 3, 5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 24, 26, 27, 29, 31, 33, 34, 36, 38, 39, 41, 43, 45, 46, 48, 50, 51, 53, 55, 57, 58, 60};
+//phrygian
+uint8_t scale5[36] =   {0, 1, 3, 5, 7, 8, 10, 12, 13, 15, 17, 19, 20, 22, 24, 25, 27, 29, 31, 32, 34, 36, 37, 39, 41, 43, 44, 46, 48, 49, 51, 53, 55, 56, 58, 60};
+//lydian
+uint8_t scale6[36] =   {0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23, 24, 26, 28, 30, 31, 33, 35, 36, 38, 40, 42, 43, 45, 47, 48, 50, 52, 54, 55, 57, 59, 60};
+//myxolydian
+uint8_t scale7[36] =   {0, 2, 4, 5, 7, 9, 10, 12, 14, 16, 17, 19, 21, 22, 24, 26, 28, 29, 31, 33, 34, 36, 38, 40, 41, 43, 45, 46, 48, 50, 52, 53, 55, 57, 58, 60};
+//aeolian
+uint8_t scale8[36] =   {0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22, 24, 26, 27, 29, 31, 32, 34, 36, 38, 39, 41, 43, 44, 46, 48, 50, 51, 53, 55, 56, 58, 60};
+//locrian
+uint8_t scale9[36] =   {0, 1, 3, 5, 6, 8, 10, 12, 13, 15, 17, 18, 20, 22, 24, 25, 27, 29, 30, 32, 34, 36, 37, 39, 41, 42, 44, 46, 48, 49, 51, 53, 54, 56, 58, 60};
+//chromatic
+uint8_t scale10[128] =   {1, 2, 3, 4, 5, 6, 7, 8, 9,
+                          10, 11, 12, 13, 14, 15, 16, 17, 18,
+                          19, 20, 21, 22, 23, 24, 25, 26, 27,
+                          28, 29, 30, 31, 32, 33, 34, 35, 36,
+                          37, 38, 39, 40, 41, 42, 43, 44, 45,
+                          46, 47, 48, 49, 50, 51, 52, 53, 54,
+                          55, 56, 57, 58, 59, 60, 61, 62, 63,
+                          64, 65, 66, 67, 68, 69, 70, 71, 72,
+                          73, 74, 75, 76, 77, 78, 79, 80, 81,
+                          82, 83, 84, 85, 86, 87, 88, 89, 90,
+                          91, 92, 93, 94, 95, 96, 97, 98, 99,
+                          100, 101, 102, 103, 104, 105, 106, 107, 108,
+                          109, 110, 111, 112, 113, 114, 115, 116, 117,
+                          118, 119, 120, 121, 122, 123, 124, 125, 126,
+                          127, 128
+                         };
+
 // digital input for shift button
 int shift = 7;
 
@@ -85,7 +81,6 @@ byte buffer[3];    // for dac
 
 // -------------  Variables for the sequencer -------------------
 uint8_t def_sequencer_steps[16] = {60, 67, 72, 79, 84, 79, 72, 67, 60, 55, 48, 43, 36, 43, 48, 55};
-//uint8_t def_sequencer_steps[16] = {36, 48, 60, 72, 84, 96, 36, 48, 60, 72, 84, 96, 36, 48, 60, 72 };
 uint8_t sequencer_steps[16] ;
 float sequencer_lens[16];
 uint8_t seq_counter;
@@ -93,9 +88,9 @@ uint8_t seq_length;
 boolean seq_running ;
 boolean gate_is_high ;
 uint8_t thisscale[128];
-uint8_t thisscaleid = 8;
+uint8_t thisscaleid = 10;
 uint8_t thisscalelen = 128;
-// you could just take the counter - 1 of the seuqencer to get the last note, but what if the seqeunce changes?
+
 int prev_note;
 int base;
 
@@ -184,7 +179,6 @@ void setup() {
   seq_length = 16;
   seq_running = false;
   gate_is_high = false;
-  // you could just take the counter - 1 of the seuqencer to get the last note, but what if the seqeunce changes?
   int prev_note;
 
   vel = 87; // default velocity
@@ -286,28 +280,13 @@ void sequencer_mode() {
   // next, checks clock mode
   // next, checks if enouggh time has ellapsed between notes
 
-  //  Serial.print(bpm);
-  //  Serial.print("bpm; ");
-  //  Serial.print(time_between_quarter_notes);
-  //  Serial.print(" ms between nodes;");
-  //  Serial.print(time_next_note);
-  //  Serial.print(" ");
-  //  Serial.println(millis());
-
-
   set_time_between_quarter_notes(bpm);
   // internal
   if (internal_clock) {
     time_prev_note = millis();
 
     if (millis() > time_next_note) {
-      //      Serial.print(time_prev_note);
-      //      Serial.print(" ");
-      //      Serial.print(time_between_quarter_notes);
-      //      Serial.print(" ");
-      //      Serial.print(time_next_note);
-      //      Serial.print(" ");
-      //      Serial.println(millis());
+
       play_sequence();
       time_next_note = time_prev_note + time_between_quarter_notes;
     } else {
@@ -318,14 +297,11 @@ void sequencer_mode() {
     // check for a CV pulse. USA A VOLTAGE DIVIDER TO ATTENUATE INPUT!!!
     // also, ignore long pulses:  for instance, STARTUP by music thing modular outputs clock triggers for 10MS
     // so for safety lets wait for a 5x that (100)
-    //     Serial.print(analogRead(clock_in));
-    //     Serial.print("\n");
+
     if (analogRead(clock_in) > 400) {
-      //      Serial.print(time_prev_note);
-      //      Serial.print(" ");
-      //      Serial.println(millis());
+
       if ((millis() - time_prev_note)  > 100) {
-        //        Serial.print("playing note\n");
+
         time_prev_note = millis();
         play_sequence();
       }
@@ -436,13 +412,6 @@ void set_time_between_quarter_notes(float bpm) {
 
 int process_pot(int a_input) {
   int thisval = analogRead(a_input);
-  //  if (DEBUG) {
-  //    Serial.print("Analog input:");
-  //    Serial.println(a_input);
-  //    Serial.print(" ");
-  //    Serial.println(thisval);
-  //  }
-  // TBD
   return (thisval);
 }
 
@@ -457,19 +426,6 @@ float noteToVolt(int note) {
   int constr_note = constrain(note, 36, 97);
   int mvolts = map(constr_note, 36, 97, 0, 5000) ; // start at A220
   float volts = (mvolts / 1000.0);
-  //  if (DEBUG) {
-  //    Serial.print("Freq: ");
-  //    Serial.print(freq);
-  //    Serial.print("  Note: ");
-  //    Serial.print(note);
-  //    Serial.print("  ConstrNote: ");
-  //    Serial.print(constr_note);
-  //    Serial.print("   mVolts: ");
-  //    Serial.print(mvolts);
-  //    Serial.print("   Volts: ");
-  //    Serial.println(volts);
-  //  }
-  //return (((note - 60.0) / divider) * 4095.0);
   return (volts);
 }
 
@@ -573,17 +529,17 @@ void process_shift_change() {
           thisscale[s] = scale2[s];
         }
       } else if (thisscaleid == 3) {
-        thisscalelen = 27 ;
+        thisscalelen = 36 ;
         for (int s = 0; s < thisscalelen; s++) {
           thisscale[s] = scale3[s];
         }
       } else if (thisscaleid == 4) {
-        thisscalelen = 27 ;
+        thisscalelen = 36 ;
         for (int s = 0; s < thisscalelen; s++) {
           thisscale[s] = scale4[s];
         }
       } else if (thisscaleid == 5) {
-        thisscalelen = 27 ;
+        thisscalelen = 36 ;
         for (int s = 0; s < thisscalelen; s++) {
           thisscale[s] = scale5[s];
         }
@@ -597,10 +553,20 @@ void process_shift_change() {
         for (int s = 0; s < thisscalelen; s++) {
           thisscale[s] = scale7[s];
         }
+      } else if (thisscaleid == 8) {
+        thisscalelen = 36 ;
+        for (int s = 0; s < thisscalelen; s++) {
+          thisscale[s] = scale8[s];
+        }
+      } else if (thisscaleid == 9) {
+        thisscalelen = 36 ;
+        for (int s = 0; s < thisscalelen; s++) {
+          thisscale[s] = scale9[s];
+        }
       } else {
         thisscalelen = 128 ;
         for (int s = 0; s < thisscalelen; s++) {
-          thisscale[s] = scale8[s];
+          thisscale[s] = scale10[s];
         }
       }
     } else if (time_to_reset_seq < millis() and not already_reset_seq) {
