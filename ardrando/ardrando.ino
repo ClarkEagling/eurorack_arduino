@@ -84,9 +84,10 @@ byte buffer[3];    // for dac
 // -------------  Variables for the sequencer -------------------
 
 // CLARK WTF are these sequencer steps?
-uint8_t def_sequencer_steps[16] = {60, 67, 72, 79, 84, 79, 72, 67, 60, 55, 48, 43, 36, 43, 48, 55};
-uint8_t sequencer_steps[16] ;
-float sequencer_lens[16];
+//uint8_t def_sequencer_steps[16] = {60, 67, 72, 79, 84, 79, 72, 67, 60, 55, 48, 43, 36, 43, 48, 55};
+uint8_t def_sequencer_steps[36] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36};
+uint8_t sequencer_steps[36] ;
+float sequencer_lens[36];
 uint8_t seq_counter;
 uint8_t seq_length;
 boolean seq_running ;
@@ -174,7 +175,7 @@ void setup() {
 
   // -------------  Variables for the sequencer -------------------
   // these are in the setup() because we want to be able to reset the seqeunce when the unit is reset
-  for (int k = 0; k < 16; k++) {
+  for (int k = 0; k < 36; k++) {
     sequencer_steps[k] = def_sequencer_steps[k];
     
     //CLARK .5 sequencer lens?
